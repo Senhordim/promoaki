@@ -16,6 +16,14 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+end
+
+gem 'simple_form'
+gem 'devise'
+gem 'rails-i18n', '~> 5.0.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
