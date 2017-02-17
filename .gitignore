@@ -37,7 +37,9 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
->>>>>>> 1d532a67e2a301fa5ec845ae0398786a359ba7cf
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore template admin
+/public/AdminLTE-2.3.11
