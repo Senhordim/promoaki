@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217184806) do
+ActiveRecord::Schema.define(version: 20170217190048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street"
+    t.string   "neighborhood"
+    t.string   "zip_code"
+    t.string   "numb"
+    t.string   "complement"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "store_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["store_id"], name: "index_addresses_on_store_id", using: :btree
+  end
 
   create_table "stores", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,4 +50,5 @@ ActiveRecord::Schema.define(version: 20170217184806) do
     t.index ["reset_password_token"], name: "index_stores_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "stores"
 end
