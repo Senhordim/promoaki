@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Promoaki</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'ad/ad', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'ad/ad', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <%= render 'ad/elements/header' %>
+      <%= render 'ad/elements/sidebar' %>
+      <%= yield %>
+      <%= render 'ad/elements/footer' %>
+      <%= render 'ad/elements/aside' %>
+      <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+      <div class="control-sidebar-bg"></div>
+    </div>
+    <%= javascript_include_tag 'ad/ad', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
