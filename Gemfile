@@ -18,7 +18,12 @@ gem 'jbuilder', '~> 2.5'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
+  gem 'rails-assets-ionicons'
+  gem 'rails-assets-iCheck'
+  gem 'rails-assets-morrisjs'
 end
+
+gem "font-awesome-rails"
 
 gem 'simple_form'
 gem 'devise'

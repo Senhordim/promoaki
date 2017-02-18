@@ -72,6 +72,8 @@ GEM
     faker (1.7.3)
       i18n (~> 0.5)
     ffi (1.9.17)
+    font-awesome-rails (4.7.0.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.0)
@@ -126,7 +128,18 @@ GEM
       sprockets-rails (>= 2.0.0)
     rails-assets-bootstrap (3.3.7)
       rails-assets-jquery (>= 1.9.1, < 4)
+    rails-assets-eve-raphael (0.5.0)
+    rails-assets-iCheck (1.0.2)
+      rails-assets-jquery (>= 1.7)
+    rails-assets-ionicons (2.0.1)
     rails-assets-jquery (3.1.1)
+    rails-assets-mocha (1.17.1)
+    rails-assets-morrisjs (0.5.1)
+      rails-assets-jquery (>= 2.1.0)
+      rails-assets-mocha (~> 1.17.1)
+      rails-assets-raphael (>= 2.0)
+    rails-assets-raphael (2.2.7)
+      rails-assets-eve-raphael (= 0.5.0)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -225,6 +238,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -233,6 +247,9 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails-assets-bootstrap!
+  rails-assets-iCheck!
+  rails-assets-ionicons!
+  rails-assets-morrisjs!
   rails-i18n (~> 5.0.0)
   rspec-rails
   sass-rails (~> 5.0)
