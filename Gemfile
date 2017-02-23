@@ -21,6 +21,9 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-ionicons'
   gem 'rails-assets-iCheck'
   gem 'rails-assets-morrisjs'
+  gem 'rails-assets-slimScroll'
+  gem 'rails-assets-raphael'
+  gem 'rails-assets-fastclick'
 end
 
 gem "font-awesome-rails"
