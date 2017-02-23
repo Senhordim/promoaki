@@ -2,4 +2,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require raphael
 //= require bootstrap-datepicker
+//= require morrisjs
+//= require slimScroll
+//= require fastclick
+//= require ad/app
+//= require ad/dashboard
