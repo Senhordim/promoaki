@@ -6,3 +6,6 @@ class AddComplementFieldsToStores < ActiveRecord::Migration[5.0]
     add_column :stores, :phone, :string
   end
 end
+
+
+
