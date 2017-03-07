@@ -19,6 +19,10 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  social_name            :string
+#  fantasy_name           :string
+#  cnpj                   :string
+#  phone                  :string
 #
 
 require 'rails_helper'
