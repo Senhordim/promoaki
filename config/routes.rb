@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :stores
+  devise_for :stores, controllers: {
+    sessions: 'stores/sessions',
+    registrations: 'stores/registrations',
+  }
 
   namespace :ad do
     get 'dashboard/index'
