@@ -27,6 +27,12 @@
 
 FactoryGirl.define do
   factory :store do
-    
+    email {Faker::Internet.email}
+    social_name {Faker::Company.name}
+    fantasy_name {Faker::Company.name}
+    cnpj {Faker::Company.swedish_organisation_number}
+    phone {Faker::PhoneNumber.cell_phone}
   end
 end
+
+
