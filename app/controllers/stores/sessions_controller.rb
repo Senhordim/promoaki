@@ -1,5 +1,6 @@
 class Stores::SessionsController < Devise::SessionsController
-# before_action :configure_sign_in_params, only: [:create]
+  layout "auth"
+  # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
   # def new
