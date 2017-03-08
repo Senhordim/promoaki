@@ -33,5 +33,6 @@ class Store < ApplicationRecord
 
   has_one :address
 
-  validates :social_name, :fantasy_name, :cnpj, :phone, presence:   true
+  validates :social_name, :fantasy_name, :cnpj, :phone, presence: true
+  validates :cnpj, uniqueness: true
 end
