@@ -28,6 +28,7 @@ end
 
 gem "font-awesome-rails"
 gem 'bootstrap-datepicker-rails'
+gem 'jquery_mask_rails' # more details at http://bit.ly/jquery-mask-gem
 
 gem 'simple_form'
 gem 'devise'
