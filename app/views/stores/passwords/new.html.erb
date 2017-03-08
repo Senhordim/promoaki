@@ -1,10 +1,16 @@
-Forgot your password?
+<div class="login-box-body">
+    <p class="login-box-msg">Recuperar sua senha</p>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :email, required: true, autofocus: true %>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :email, required: true, autofocus: true %>
 
-  <%= f.button :submit, "Send me reset password instructions" %>
-<% end %>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.button :submit, "Send me reset password instructions", class: 'btn btn-primary btn-block btn-flat btn-lg' %>
+        </div>
+      </div>
 
-<%= render "stores/shared/links" %>
+    <% end %>
+    <%= render "stores/shared/links" %>
+</div>

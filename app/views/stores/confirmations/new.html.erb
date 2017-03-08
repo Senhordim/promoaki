@@ -1,10 +1,14 @@
-Resend confirmation instructions
-
-<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :confirmation_token %>
-  <%= f.input :email, required: true, autofocus: true %>
-  <%= f.button :submit, "Resend confirmation instructions" %>
-<% end %>
-
-<%= render "stores/shared/links" %>
+<div class="register-box-body">
+  <p class="login-box-msg">Resend confirmation instructions</p>
+  <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.full_error :confirmation_token %>
+    <%= f.input :email, required: true, autofocus: true %>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.button :submit, "Resend confirmation instructions", class: 'btn btn-primary btn-block btn-flat' %>
+      </div>
+    </div>
+  <% end %>
+  <%= render "stores/shared/links" %>
+</div>

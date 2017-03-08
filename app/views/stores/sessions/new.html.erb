@@ -1,11 +1,22 @@
+<div class="login-box-body">
+  <p class="login-box-msg">Para continuar insira seu email e senha</p>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.input :email, required: false, autofocus: true %>
-  <%= f.input :password, required: false %>
-  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.input :email, required: false, autofocus: true %>
+    <%= f.input :password, required: false %>
 
-  <%= f.button :submit, "Log in" %>
+    <div class="row">
+      <div class="col-xs-8">
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
 
-<% end %>
+      <div class="col-xs-4">
+        <%= f.button :submit, "Entrar", class: 'btn btn-primary btn-block btn-flat btn-lg' %>
+      </div>
+    </div>
+  <% end %>
+  <%= render "stores/shared/links" %>
+</div>
 
-<%= render "stores/shared/links" %>
+
+
