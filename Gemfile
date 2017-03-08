@@ -35,7 +35,6 @@ gem 'devise-i18n'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'annotate'
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -48,6 +47,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+
 end
 
 group :development do
@@ -58,6 +58,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
+  gem 'brakeman', :require => false
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
