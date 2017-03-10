@@ -1,24 +1,72 @@
-Edit <%= resource_name.to_s.humanize %>
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>Painel de <small>controle</small></h1>
+    </section>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Horizontal Form -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-fw fa-edit"></i> <h3 class="box-title">Configurações</h3>
+            </div>
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= f.error_notification %>
+              <div class="box-body">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <%= f.input :fantasy_name , required: true %>
+                    <%= f.input :social_name, required: true %>
+                  </div>
+                </div>
 
-    <%= f.input :email, required: true, autofocus: true %>
+                <div class="row">
+                   <div class="col-md-6">
+                    <%= f.input :cnpj, required: true, input_html: {class: 'cnpj-mask'} %>
+                   </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+                   <div class="col-md-6">
+                    <%= f.input :phone, required: true, input_html: {class: 'phone-mask'} %>
+                   </div>
+                </div>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <%= f.input :email, required: true, autofocus: true %>
+                  </div>
+                </div>
 
-    <%= f.button :submit, "Update" %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+                  </div>
+                  <div class="col-md-6">
+                    <%= f.input :password_confirmation, required: false %>
+                  </div>
+                </div>
 
-<% end %>
+                <div class="row">
+                  <div class="col-md-6">
+                    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+                  </div>
+                </div>
 
-Cancel my account
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                  </div>
+                </div>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                <div class="box-footer">
+                  <%= link_to 'Voltar', :back, class: 'btn btn-default' %>
+                  <%= f.submit class: 'btn btn-primary pull-right' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-<%= link_to "Back", :back %>
