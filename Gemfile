@@ -24,6 +24,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-slimScroll'
   gem 'rails-assets-raphael'
   gem 'rails-assets-fastclick'
+  gem 'rails-assets-underscore'
 end
 
 gem "font-awesome-rails"
@@ -35,6 +36,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'annotate'
+gem 'geocoder'
+gem 'gmaps4rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,6 +65,7 @@ group :development do
   gem 'brakeman', :require => false
   gem "better_errors"
   gem "binding_of_caller"
+  gem "rails-erd"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
