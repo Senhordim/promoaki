@@ -8,4 +8,6 @@
 //= require slimScroll
 //= require fastclick
 //= require ad/app
-//= require ad/dashboard
+//= require jquery.mask
+//= require ad/mask
+//= require ad/findaddress
