@@ -1,0 +1,2 @@
+module Ad::AddressesHelper
+end

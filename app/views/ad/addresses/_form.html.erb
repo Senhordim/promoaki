@@ -1,0 +1,45 @@
+<%= simple_form_for [:ad, @address] do |f| %>
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.input :zip_code, input_html: { class: 'cep-mask' } %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.input :street %>
+      </div>
+
+      <div class="col-md-2">
+        <%= f.input :numb  %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :complement %>
+      </div>
+      <div class="col-md-6">
+         <%= f.input :neighborhood %>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6">
+         <%= f.input :city %>
+      </div>
+
+       <div class="col-md-6">
+         <%= f.input :state %>
+       </div>
+    </div>
+
+    <%= f.input :store_id, as: :hidden, input_html: { value: current_store.id } %>
+  </div>
+
+  <div class="box-footer">
+    <%= link_to 'Voltar', :back, class: 'btn btn-default' %>
+    <%= f.submit class: 'btn btn-primary pull-right' %>
+  </div>
+
+<% end %>
