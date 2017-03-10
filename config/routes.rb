@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   }
 
   namespace :ad do
+
+    resources :addresses
+
     get 'dashboard/index'
     root 'dashboard#index'
+
   end
 
   get 'home/index'
