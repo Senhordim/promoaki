@@ -17,6 +17,12 @@ $(document).ready(function(){
 
   $('.phone-mask').mask(SPMaskBehavior, spOptions);
 
+
+  $('#new_store').submit(function() {
+    $('.phone-mask').unmask();
+    $('.cnpj-mask').unmask();
+  });
+
   $('#new_store').submit(function() {
     $('.phone-mask').unmask();
     $('.cnpj-mask').unmask();
