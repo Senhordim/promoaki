@@ -13,8 +13,24 @@
 #  store_id     :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  latitude     :float
+#  longitude    :float
+#  country      :string
 #
 
 class Address < ApplicationRecord
   belongs_to :store
+
+  geocoded_by :full_address
+
+  after_validation :geocode,
+    if: -> (obj){ obj.street_changed? || obj.numb_changed? || obj.neighborhood_changed? || obj.city_changed? || obj.state_changed? }
+
+  def full_address
+    [street, numb, city, state, country].compact.join(', ')
+  end
+
 end
+
+# api
+# AIzaSyCb932fqnHc_O-iobYOh-GAGO9gCOOP4GY
