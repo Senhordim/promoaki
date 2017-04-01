@@ -20,13 +20,18 @@
 
 FactoryGirl.define do
   factory :address do
-    street "MyString"
-    neighborhood "MyString"
-    zip_code "MyString"
-    numb "MyString"
-    complement "MyString"
-    city "MyString"
-    state "MyString"
-    store nil
+    
+
+    trait :full_address do
+      street Faker::Address.street_name
+      neighborhood "Centro"
+      numb "23"
+      complement "casa"
+      city Faker::Address.city
+      state Faker::Address.state_abbr
+      longitude Faker::Address.longitude
+      latitude  Faker::Address.latitude
+    
+    end
   end
 end

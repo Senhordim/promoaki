@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :stores, controllers: {
-    sessions: 'stores/sessions',
+    sessions:      'stores/sessions',
     registrations: 'stores/registrations',
     confirmations: 'stores/confirmations',
-    passwords: 'stores/passwords'
+    passwords:     'stores/passwords'
   }
 
   namespace :ad do
@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   
   end
 
-  namespace :api, defaults: { format: 'json'} do
+  namespace :api, path: '', defaults: { format: 'json'} do
     namespace :v1 do
-       get "/promotions",   :to => "promotions#index"
+       post "/promotions", :to => "promotions#index", as: 'promotions'
       
     end
     

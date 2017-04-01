@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
-  skip_before_action :authenticate_user!, only: [:api_v1_promotions], raise: false
-
-  before_action :authenticate_store!
+  
+  before_action :authenticate_store!, :except => [:api_promotions]
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
