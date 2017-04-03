@@ -15,11 +15,10 @@
 
 FactoryGirl.define do
   factory :promotion do
-    title "MyString"
-    description "MyText"
-    quantity ""
-    endDate "2017-02-17"
-    segment nil
-    store nil
+    title "Promoção teste"
+    description "Uma simples promoção de desconto"
+    quantity 10
+    endDate Date.tomorrow
+    segment {create(:segment)}
   end
 end

@@ -32,6 +32,7 @@ FactoryGirl.define do
     fantasy_name {Faker::Company.name}
     cnpj {Faker::Company.swedish_organisation_number}
     phone {Faker::PhoneNumber.cell_phone}
+    password 'qweqwe123'
   end
 end
 
