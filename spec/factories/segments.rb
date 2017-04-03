@@ -10,6 +10,6 @@
 
 FactoryGirl.define do
   factory :segment do
-    name "MyString"
+    name "Venda"
   end
 end
