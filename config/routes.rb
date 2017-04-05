@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :stores, controllers: {
     sessions:      'stores/sessions',
     registrations: 'stores/registrations',
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   namespace :ad do
 
     resources :addresses
+    resources :promotions
 
     get 'dashboard/index'
     root 'dashboard#index'

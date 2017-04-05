@@ -1,0 +1,51 @@
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>Painel de <small>promoções</small></h1>
+    </section>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+            
+            <!-- /.box-header -->
+            <!-- form start -->
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Suas Promoções</h3>
+                  <div class="box-tools">
+                    <%= link_to "Nova promoção", new_ad_promotion_path, class: 'btn btn-primary btn-block btn-flat' %>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Título</th>
+                      <th>Descrição</th>
+                      <th>Segmento</th>
+                      <th>Data de inicio</th>
+                      <th>Data final</th>
+                    </tr>
+                      <% @promotion.each do |p| %>
+                        <tr>
+                          <td><%= p.id %></td>
+                          <td><%= link_to "#{p.title}", ad_promotion_path(p.id) %></td>
+                          <td><%= p.description %></td>
+                          <td><%= p.segment_id %></td>
+                          <td><%= p.created_at %></td>
+                          <td><%= p.endDate %>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                    
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>

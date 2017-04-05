@@ -52,6 +52,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
   gem 'warden-rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'capybara'
 
 end
 

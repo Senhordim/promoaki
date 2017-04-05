@@ -1,0 +1,30 @@
+<div class="content-wrapper">
+    <section class="content-header">
+      <h1>Painel de <small>promoções</small></h1>
+    </section>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-8">
+          <!-- Horizontal Form -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+               <h3 class="box-title">Promoção: #<%= @promotion.id %></h3>
+               <div class="box-tools">
+                    <%= link_to "Editar", edit_ad_promotion_path(@promotion), class: 'btn btn-primary btn-block btn-flat' %>
+               </div>
+            </div>
+            <div class="box-body">
+              <p><strong>Título: </strong><%= @promotion.title %></p>
+              <p><strong>Quantidade: </strong><%= @promotion.quantity %></p> 
+              <p><strong>Data Final: </strong><%= @promotion.endDate %></p> 
+              <p><strong>Segmento: </strong><%= @promotion.segment.name.capitalize %></p> 
+              <p><strong>Descrição: </strong><%= @promotion.description %></p>  
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
