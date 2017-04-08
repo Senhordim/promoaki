@@ -38,6 +38,7 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'annotate'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,6 +53,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
   gem 'warden-rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'capybara'
 
 end
 

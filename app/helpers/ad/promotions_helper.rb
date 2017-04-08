@@ -1,0 +1,2 @@
+module Ad::PromotionsHelper
+end
