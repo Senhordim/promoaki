@@ -34,7 +34,7 @@ gem 'jquery_mask_rails' # more details at http://bit.ly/jquery-mask-gem
 gem 'simple_form'
 gem 'devise'
 gem 'devise-i18n'
-gem 'rails-i18n', '~> 5.0.0'allica
+gem 'rails-i18n', '~> 5.0.0'
 gem 'annotate'
 gem 'geocoder'
 gem 'gmaps4rails'
