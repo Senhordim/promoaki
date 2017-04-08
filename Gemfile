@@ -34,10 +34,11 @@ gem 'jquery_mask_rails' # more details at http://bit.ly/jquery-mask-gem
 gem 'simple_form'
 gem 'devise'
 gem 'devise-i18n'
-gem 'rails-i18n', '~> 5.0.0'
+gem 'rails-i18n', '~> 5.0.0'allica
 gem 'annotate'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

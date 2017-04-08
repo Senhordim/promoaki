@@ -2,10 +2,10 @@ class Ad::PromotionsController < ApplicationController
   layout 'ad'
 
   before_action :set_promotion, only: [:update, :edit]
-
+    
   def new
     @promotion = Promotion.new
-    @segment = Segment.all
+    
   end
 
   def index
@@ -19,14 +19,13 @@ class Ad::PromotionsController < ApplicationController
   def create
     @promotion = Promotion.new(promotion_params)
     if @promotion.save
-      redirect_to ad_promotions_path, notice: 'Promoção criada com sucesso.'
+      redirect_to ad_promotion_path(@promotion), notice: 'Promoção criada com sucesso.'
     else
-      render :new, notice: "corrija os erros: #{@promotions.errors}"
+      render :new, notice: "corrija os erros"
     end
   end
 
   def edit
-    @segment = Segment.all
   end
 
   def update
@@ -42,6 +41,13 @@ class Ad::PromotionsController < ApplicationController
   end
 
   def destroy
+    @promotion = Promotion.find(params[:id])
+    @promotion.destroy
+
+    respond_to do |format|
+      format.html { redirect_to ad_promotions_path, notice: 'Promoção deletada com sucesso.' }
+      format.json { head :no_content }
+    end
   end
 
   private

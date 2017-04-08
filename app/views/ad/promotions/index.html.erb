@@ -2,6 +2,10 @@
     <section class="content-header">
       <h1>Painel de <small>promoções</small></h1>
     </section>
+     <div id="flash_messages">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, :class => "alert alert-#{key}") %>
+      <% end %>
     <section class="content">
       <div class="row">
         <div class="col-md-12">
@@ -33,7 +37,7 @@
                           <td><%= p.id %></td>
                           <td><%= link_to "#{p.title}", ad_promotion_path(p.id) %></td>
                           <td><%= p.description %></td>
-                          <td><%= p.segment_id %></td>
+                          <td><%= p.segment.name %></td>
                           <td><%= p.created_at %></td>
                           <td><%= p.endDate %>
                         </tr>

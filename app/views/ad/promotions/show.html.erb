@@ -10,8 +10,7 @@
             <div class="box-header with-border">
                <h3 class="box-title">Promoção: #<%= @promotion.id %></h3>
                <div class="box-tools">
-                    <%= link_to "Editar", edit_ad_promotion_path(@promotion), class: 'btn btn-primary btn-block btn-flat' %>
-               </div>
+                </div>
             </div>
             <div class="box-body">
               <p><strong>Título: </strong><%= @promotion.title %></p>
@@ -19,6 +18,15 @@
               <p><strong>Data Final: </strong><%= @promotion.endDate %></p> 
               <p><strong>Segmento: </strong><%= @promotion.segment.name.capitalize %></p> 
               <p><strong>Descrição: </strong><%= @promotion.description %></p>  
+            </div>
+
+            <div class="box-footer clearfix">
+                 <div class="margin pull-right">
+                  <%= link_to "Deletar", ad_promotion_path(@promotion), method: :delete, class: 'btn btn-danger btn-flat', data: {confirm: "Deseja deletar a promoção #{@promotion.title}?"} %>
+                  <%= link_to "Editar", edit_ad_promotion_path(@promotion), class: 'btn btn-primary btn-flat' %>
+                </div>
+               
+
             </div>
             <!-- /.box-header -->
             <!-- form start -->
