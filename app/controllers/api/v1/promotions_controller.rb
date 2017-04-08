@@ -1,11 +1,10 @@
 class Api::V1::PromotionsController < Api::ApiController
-   
+
   def index
   	@longitude = params[:longitude]
   	@latitude  = params[:latitude]
 
   	if some_address? || find_promotion?
-  	  require 'pry'; binding.pry
   	  render :json => { :status => "error", :message => "No pomotions yet" }
   	else
 	  # Address.near([-25.594798, -49.339072], 5)
@@ -17,7 +16,7 @@ class Api::V1::PromotionsController < Api::ApiController
 
 
   private
-  
+
   def find_promotions(addresses)
   	@addresses = addresses
   	@promotions = []
