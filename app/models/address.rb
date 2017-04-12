@@ -19,6 +19,7 @@
 #
 
 class Address < ApplicationRecord
+
   belongs_to :store
 
   geocoded_by :full_address
@@ -32,5 +33,5 @@ class Address < ApplicationRecord
 
 end
 
-# api
-# AIzaSyCb932fqnHc_O-iobYOh-GAGO9gCOOP4GY
+# '{"latitude": "-23.0099556", "longitude": "-45.5835282"}'
+
