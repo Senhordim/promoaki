@@ -1,55 +1,65 @@
-<div class="content-wrapper">
-    <section class="content-header">
-      <h1>Painel de <small>promoções</small></h1>
-    </section>
-     <div id="flash_messages">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, :class => "alert alert-#{key}") %>
-      <% end %>
-    <section class="content">
-      <div class="row">
-        <div class="col-md-12">
-          <!-- Horizontal Form -->
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Suas Promoções</h3>
-                  <div class="box-tools">
-                    <%= link_to "Nova promoção", new_ad_promotion_path, class: 'btn btn-primary btn-block btn-flat' %>
-                  </div>
-                </div>
-                <div class="box-body">
-                  <table class="table table-bordered">
-                    <tbody>
+<!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Painel
+      <small>de controle</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Paienl</a></li>
+      <li class="active">Lista de promoções</li>
+    </ol>
+  </section>
+
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title">Lista de Promoções</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table class="table table-bordered">
+                  <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Título</th>
-                      <th>Descrição</th>
-                      <th>Segmento</th>
-                      <th>Data de inicio</th>
-                      <th>Data final</th>
+                      <th>Segmeno</th>
+                      <th>Nome</th>
+                      <th>Data de criação</th>
+                      <th>Data fim</th>
+                      <th style="width: 200px">Ações</th>
                     </tr>
-                      <% @promotion.each do |p| %>
-                        <tr>
-                          <td><%= p.id %></td>
-                          <td><%= link_to "#{p.title}", ad_promotion_path(p.id) %></td>
-                          <td><%= p.description %></td>
-                          <td><%= p.segment.name %></td>
-                          <td><%= p.created_at %></td>
-                          <td><%= p.endDate %>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                    
-                  </table>
-                </div>
-
+                  </thead>
+                  <tbody>
+                    <% @promotions.each do |promotion| %>
+                      <tr>
+                        <td><%= promotion.id %></td>
+                        <td><%= promotion.segment.name %></td>
+                        <td><%= promotion.title %></td>
+                        <td><%= promotion.created_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
+                        <td>
+                          <% if promotion.endDate.present? %>
+                            <%= promotion.endDate.strftime("%d/%m/%Y") %>
+                          <% else %>
+                            -- Sem data para finalizar --
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
               </div>
-            </div>
-          </div>
+              <!-- /.box-body -->
+              <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                  <li><a href="#">«</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div>
         </div>
-    </section>
-  </div>
+      </div>
+    </div>
+  </section>
