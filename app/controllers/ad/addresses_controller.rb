@@ -1,6 +1,4 @@
-class Ad::AddressesController < ApplicationController
-
-  layout "ad"
+class Ad::AddressesController < AdController
 
   before_action :set_address, only: [:show, :edit, :update]
 
@@ -17,18 +15,17 @@ class Ad::AddressesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def edit
   end
 
   def update
-    respond_to do |format|
-      if @address.update(course_params)
-        format.html { redirect_to edit_store_registration_path, notice: 'Endereço atualizado com sucesso' }
-        format.json { render :show, status: :ok, location: @course }
-      else
-        format.html { render :edit }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
+    if @address.update(course_params)
+      redirect_to edit_store_registration_path, notice: 'Endereço atualizado com sucesso'
+    else
+      render :edit
     end
   end
 
