@@ -1,5 +1,4 @@
-class Ad::DashboardController < ApplicationController
-  layout "ad"
+class Ad::DashboardController <  AdController
 
   def index
   end
