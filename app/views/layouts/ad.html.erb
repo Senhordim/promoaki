@@ -13,7 +13,11 @@
     <div class="wrapper">
       <%= render 'ad/elements/header' %>
       <%= render 'ad/elements/sidebar' %>
-      <%= yield %>
+
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
+
       <%= render 'ad/elements/footer' %>
       <%= render 'ad/elements/aside' %>
       <!-- Add the sidebar's background. This div must be placed
