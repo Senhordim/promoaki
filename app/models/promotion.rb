@@ -17,6 +17,6 @@ class Promotion < ApplicationRecord
   belongs_to :segment
   belongs_to :store
 
-  validates_presence_of :title, :description, :endDate
+  validates_presence_of :title, :description
 
 end
