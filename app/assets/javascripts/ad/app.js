@@ -226,10 +226,6 @@ $(function () {
   });
 });
 
-/* Datepicker */
-$('#endDate').datepicker({
-    daysOfWeekDisabled: "0"
-});
 
 /* ----------------------------------
  * - Initialize the AdminLTE Object -
