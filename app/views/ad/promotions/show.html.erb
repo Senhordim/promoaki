@@ -1,38 +1,65 @@
-<div class="content-wrapper">
+
     <section class="content-header">
       <h1>Painel de <small>promoções</small></h1>
     </section>
     <section class="content">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <!-- Horizontal Form -->
           <div class="box box-primary">
             <div class="box-header with-border">
-               <h3 class="box-title">Promoção: #<%= @promotion.id %></h3>
-               <div class="box-tools">
-                </div>
+              <h3 class="box-title"><%= @promotion.title %></h3>
+              <div class="margin pull-right">
+                <%= link_to ad_promotions_path, class: 'btn btn-default btn-flat' do %>
+                   <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+                <% end %>
+                <%= link_to edit_ad_promotion_path(@promotion), class: 'btn btn-default btn-flat' do %>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
+                <% end %>
+              </div>
             </div>
             <div class="box-body">
-              <p><strong>Título: </strong><%= @promotion.title %></p>
-              <p><strong>Quantidade: </strong><%= @promotion.quantity %></p> 
-              <p><strong>Data Final: </strong><%= @promotion.endDate %></p> 
-              <p><strong>Segmento: </strong><%= @promotion.segment.name.capitalize %></p> 
-              <p><strong>Descrição: </strong><%= @promotion.description %></p>  
+              <div class="col-xs-12 table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Segmento</th>
+                      <th>Data de criação</th>
+                      <th>Quantidade</th>
+                      <th>Data Final</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= @promotion.segment.name.capitalize %></td>
+                      <td><%= @promotion.created_at.strftime("%d/%m/%Y") %></td>
+                      <td><%= @promotion.quantity %></td>
+                      <td><%= @promotion.endDate.strftime("%d/%m/%Y") if @promotion.endDate.present?  %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col-xs-12 table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Descrição</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= @promotion.description %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
             </div>
 
-            <div class="box-footer clearfix">
-                 <div class="margin pull-right">
-                  <%= link_to "Deletar", ad_promotion_path(@promotion), method: :delete, class: 'btn btn-danger btn-flat', data: {confirm: "Deseja deletar a promoção #{@promotion.title}?"} %>
-                  <%= link_to "Editar", edit_ad_promotion_path(@promotion), class: 'btn btn-primary btn-flat' %>
-                </div>
-               
-
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            
           </div>
         </div>
       </div>
+
+
     </section>
-  </div>

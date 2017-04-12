@@ -1,7 +1,11 @@
 <%= simple_form_for [:ad, @promotion] do |f| %>
+  <%= f.input :store_id, as: :hidden, input_html: { value: current_store.id } %>
   <div class="box-body">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
+        <%= f.association :segment %>
+      </div>
+      <div class="col-md-4">
         <%= f.input :title %>
       </div>
       <div class="col-md-4">
@@ -9,23 +13,19 @@
       </div>
     </div>
 
+
     <div class="row">
-      <div class="col-md-6">
-        <strong>Data Final:</strong><%= f.text_field :endDate, id: 'endDate', class: 'form-control' %>
-      </div>
-      <div class="col-md-4">
-        <strong>Segmento</strong>
-        <%= f.association :segment, class: 'form-control', label: false, include_blank: false %>
-      </div>
-      
-    </div>
-    <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <%= f.input :description %>
       </div>
     </div>
-    
-    <%= f.input :store_id, as: :hidden, input_html: { value: current_store.id } %>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.input :endDate, as: :string, input_html: {class: 'datepicker'} %>
+      </div>
+    </div>
+
   </div>
 
   <div class="box-footer">
