@@ -24,6 +24,7 @@ describe Api::V1::PromotionsController do
   	  json = JSON.parse(response.body)
   	  expect(response).to be_success
   	  expect(json.length).to eq(2)
+  	 
   	end
   	
   end

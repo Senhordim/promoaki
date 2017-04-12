@@ -3,15 +3,16 @@ class Api::V1::PromotionsController < Api::ApiController
   def index
   	@longitude = params[:longitude]
   	@latitude  = params[:latitude]
-
-  	if some_address? || find_promotion?
-  	  require 'pry'; binding.pry
-  	  render :json => { :status => "error", :message => "No pomotions yet" }
-  	else
-	  # Address.near([-25.594798, -49.339072], 5)
-	  @address = Address.near([@longitude, @latitude], 15)
-	  find_promotions(@address)
-	  render_sucess(@promotions)
+    
+  	if some_address? && find_promotion?
+      
+  	  @address = Address.near([@longitude, @latitude], 15)
+  	  find_promotions(@address)
+  	  render_sucess(@promotions)
+    else
+    # Address.near([-25.594798, -49.339072], 5)
+      render :json => { :status => "error", :message => "No pomotions yet" }
+    
     end
   end
 
@@ -19,6 +20,7 @@ class Api::V1::PromotionsController < Api::ApiController
   private
   
   def find_promotions(addresses)
+    
   	@addresses = addresses
   	@promotions = []
   	@addresses.each do |promo|
@@ -28,7 +30,7 @@ class Api::V1::PromotionsController < Api::ApiController
   end
 
   def find_promotion?
-  	Promotion.nil?
+  	Promotion.any?
   end
 
   def render_sucess(object)
@@ -36,7 +38,7 @@ class Api::V1::PromotionsController < Api::ApiController
   end
 
   def some_address?
-  	Address.geocoded.nil?
+  	Address.geocoded.any?
   end
 end
 
