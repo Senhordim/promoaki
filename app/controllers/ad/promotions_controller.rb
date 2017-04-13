@@ -2,15 +2,22 @@ class Ad::PromotionsController < AdController
 
   before_action :set_promotion, only: [:update, :edit, :show, :destroy]
 
-  def new
-    @promotion = Promotion.new
-  end
+  has_scope :by_cod
+  has_scope :by_period
+
+
 
   def index
-    @promotions = Promotion.where(store_id: current_store.id)
+    @promotions = apply_scopes(Promotion).where(store_id: current_store.id).order(created_at: :desc)
+    # @promotions = apply_scopes(Promotion).all
+
   end
 
   def show
+  end
+
+  def new
+    @promotion = Promotion.new
   end
 
   def create

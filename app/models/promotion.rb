@@ -20,12 +20,16 @@ class Promotion < ApplicationRecord
 
   validates_presence_of :title, :description
 
-  before_create :generate_code
+  before_save :generate_code
+
+  scope :by_cod, -> (cod) { where("cod like ?", "%#{cod}%") }
+  scope :by_period, -> created_at, endDate { where("created_at = ? AND endDate = ?", created_at, endDate) }
 
   private
 
   def generate_code
-    self.cod = "#" + store_id.to_s + Date.today.to_formatted_s(:number).to_s + id.to_s
+    self.cod = "#" + Date.today.to_formatted_s(:number).to_s +
+    store_id.to_s + Random.rand(0...100).to_s +  Random.rand(0...10).to_s
   end
 
 end
