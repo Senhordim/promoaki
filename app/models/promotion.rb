@@ -18,6 +18,8 @@ class Promotion < ApplicationRecord
   belongs_to :segment
   belongs_to :store
 
+  paginates_per 7
+
   validates_presence_of :title, :description
 
   before_save :generate_code

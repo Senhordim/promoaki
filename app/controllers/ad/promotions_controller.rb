@@ -8,12 +8,7 @@ class Ad::PromotionsController < AdController
 
 
   def index
-    @promotions = apply_scopes(Promotion).where(store_id: current_store.id).order(created_at: :desc)
-    # @promotions = apply_scopes(Promotion).all
-
-  end
-
-  def show
+    @promotions = apply_scopes(Promotion).where(store_id: current_store.id).order(created_at: :desc).page params[:page]
   end
 
   def new
@@ -27,6 +22,9 @@ class Ad::PromotionsController < AdController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def edit
