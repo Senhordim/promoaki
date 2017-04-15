@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       promotion: 'Promoções'
+      store: 'Loja'
     attributes:
       promotion:
         segment: 'Segmento'
@@ -9,3 +10,10 @@ pt-BR:
         quantity: 'Quantidade'
         description: 'Descrição'
         endDate: 'Data final'
+      store:
+        social_name: 'Razão social'
+        fantasy_name: 'Nome fantasia'
+        cnpj: 'CNPJ'
+        phone: 'Telefone'
+        password: 'Senha'
+        password_confirmation: 'Confirme a senha'
