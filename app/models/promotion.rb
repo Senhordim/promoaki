@@ -11,12 +11,27 @@
 #  store_id    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  cod         :string
 #
 
 class Promotion < ApplicationRecord
   belongs_to :segment
   belongs_to :store
 
+  paginates_per 7
+
   validates_presence_of :title, :description
+
+  before_save :generate_code
+
+  scope :by_cod, -> (cod) { where("cod like ?", "%#{cod}%") }
+  scope :by_period, -> created_at, endDate { where("created_at = ? AND endDate = ?", created_at, endDate) }
+
+  private
+
+  def generate_code
+    self.cod = "#" + Date.today.to_formatted_s(:number).to_s +
+    store_id.to_s + Random.rand(0...100).to_s +  Random.rand(0...10).to_s
+  end
 
 end
