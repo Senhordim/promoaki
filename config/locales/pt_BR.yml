@@ -3,6 +3,7 @@ pt-BR:
     models:
       promotion: 'Promoções'
       store: 'Loja'
+      address: 'Endereço'
     attributes:
       promotion:
         segment: 'Segmento'
@@ -17,3 +18,12 @@ pt-BR:
         phone: 'Telefone'
         password: 'Senha'
         password_confirmation: 'Confirme a senha'
+      address:
+        street: 'Rua'
+        neighborhood: 'Bairro'
+        zip_code: 'CEP'
+        numb: 'Número'
+        complement: 'Complemento'
+        city: 'Cidade'
+        state: 'Estado'
+        country: 'País'
