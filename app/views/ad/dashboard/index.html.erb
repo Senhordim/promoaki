@@ -22,14 +22,16 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>150</h3>
+            <h3><%= @count_promotion %></h3>
 
             <p>Promoções</p>
           </div>
           <div class="icon">
             <i class="ion ion-pricetags"></i>
           </div>
-          <a href="#" class="small-box-footer">Ver todas <i class="fa fa-arrow-circle-right"></i></a>
+          <%= link_to ad_promotions_path, class: "small-box-footer" do %>
+            Ver todas <i class="fa fa-arrow-circle-right"></i>
+          <% end %>
         </div>
       </div>
     </div>

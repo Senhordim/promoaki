@@ -1,6 +1,9 @@
 require 'simplecov'
 require 'support/controller_helpers'
 require 'devise'
+require 'capybara/rspec'
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 SimpleCov.start
 
 RSpec.configure do |config|

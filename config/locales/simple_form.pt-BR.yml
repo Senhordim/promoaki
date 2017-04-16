@@ -38,3 +38,12 @@ pt-BR:
         photo: 'Uma imagem vale mil palavras'
       user:
         public: 'Marque a caixa se você quer ter um perfil publico'
+    models:
+      promotion: 'Promoções'
+    attributes:
+      promotion:
+        segment: 'Segmento'
+        title: 'Título'
+        quantity: 'Quantidade'
+        description: 'Descrição'
+        endDate: 'Data final'

@@ -60,6 +60,7 @@ group :development, :test do
   gem 'warden-rspec-rails'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'poltergeist'
 
 end
 

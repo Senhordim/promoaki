@@ -5,7 +5,7 @@
       <small>de controle</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Paienl</a></li>
+      <li><a href="#"><i class="fa fa-dashboard"></i> Painel</a></li>
       <li class="active">Lista de promoções</li>
     </ol>
   </section>
@@ -64,6 +64,7 @@
                   <tbody>
                     <% @promotions.each do |promotion| %>
                       <tr>
+
                         <td><%= promotion.cod %></td>
                         <td><%= promotion.segment.name %></td>
                         <td><%= promotion.title %></td>
