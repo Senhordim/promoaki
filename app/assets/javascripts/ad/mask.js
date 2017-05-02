@@ -23,11 +23,6 @@ $(document).ready(function(){
     $('.cnpj-mask').unmask();
   });
 
-  $('#new_store').submit(function() {
-    $('.phone-mask').unmask();
-    $('.cnpj-mask').unmask();
-  });
-
 });
 
 
