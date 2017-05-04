@@ -24,7 +24,9 @@ class Promotion < ApplicationRecord
 
   before_save :generate_code
 
-  scope :by_cod, -> (cod) { where("cod like ?", "%#{cod}%") }
+  scope :by_cod, -> (cod) { where("lower(cod) like ?", "%#{cod}%".downcase) }
+  scope :by_title, -> (title) { where("lower(title) like ?", "%#{title}%".downcase)}
+
   scope :by_period, -> created_at, endDate { where("created_at = ? AND endDate = ?", created_at, endDate) }
 
   private
