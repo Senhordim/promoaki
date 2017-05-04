@@ -6,4 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Segment.create(name: "Calçados")
+Segment.create(name: "Alimentação")
+Segment.create(name: "Papelaria")
+Segment.create(name: "Roupas")
+Segment.create(name: "Doméstico")
 Segment.create(name: "venda")
