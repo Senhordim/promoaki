@@ -43,3 +43,6 @@ bower.json
 
 # Ignore template admin
 /public/AdminLTE-2.3.11
+
+# Ignore application configuration
+/config/application.yml
