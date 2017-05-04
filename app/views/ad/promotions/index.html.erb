@@ -28,6 +28,11 @@
                 </div>
 
                 <div class="col-md-3">
+                  <%= label_tag :by_title, "Por nome", class: 'sr-only' %>
+                  <%= text_field_tag :by_title, nil, :placeholder => "por título", class: "form-control"  %>
+                </div>
+
+                <div class="col-md-3">
                   <%= submit_tag "Filtrar", class: 'btn btn-default'  %>
                   <%= link_to "Limpar", request.path, class: 'btn cancel-button'  %>
                 </div>
