@@ -94,4 +94,8 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
+  ActionMailer::Base.delivery_method = :smtp
+  routes.default_url_options = { host: ENV['send_grid_domain'], protocol: 'http' }
+  config.action_mailer.default_url_options = { host: ENV['send_grid_domain'], protocol: 'http' }
+
 end
