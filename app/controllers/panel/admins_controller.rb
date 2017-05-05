@@ -1,4 +1,4 @@
-class Panel::AdminsController < ApplicationController
+class Panel::AdminsController < PanelController
   def index
   end
 end
