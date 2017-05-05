@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :admins
 
   namespace :panel do
+    resources :segments, except: [:show]
     resources :admins
     get 'dashboard/index'
     root 'dashboard#index'
