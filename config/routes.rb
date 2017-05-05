@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :panel do
+    resources :admins
+    get 'dashboard/index'
+    root 'dashboard#index'
+  end
+
   # Autenticação - Administrador
   devise_for :admins, skip: [:registrations]
 
