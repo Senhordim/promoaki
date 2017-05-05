@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # Autenticação - Administrador
+  devise_for :admins, skip: [:registrations]
+
   # Autenticação - Loja
   devise_for :stores, controllers: {
     sessions:      'stores/sessions',
