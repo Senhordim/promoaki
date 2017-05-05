@@ -42,7 +42,6 @@ class Panel::AdminsController < PanelController
     else
       render :index
     end
-
   end
 
   private
@@ -54,7 +53,7 @@ class Panel::AdminsController < PanelController
       password = params[:admin][:password]
       password_confirmation = params[:admin][:password_confirmation]
       if password.blank? && password_confirmation.blank?
-        params[:admin].except(:password, :password_confirmation)
+        params[:admin].except!(:password, :password_confirmation)
       end
       params.require(:admin).permit(policy(@admin).permitted_attributes)
     end
