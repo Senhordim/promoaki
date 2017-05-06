@@ -1,6 +1,3 @@
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap
 //= require raphael
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR
@@ -11,7 +8,7 @@
 //= require jquery.mask
 //= require ad/mask
 //= require ad/findaddress
-//= require turbolinks
+//= require flash
 
 $(document).ready(function(){
   $('.datepicker').datepicker({
@@ -20,15 +17,4 @@ $(document).ready(function(){
   });
 });
 
-$(function() {
-    var flashCallback;
-    flashCallback = function() {
-        return $(".alert").fadeOut();
-    };
-    $(".alert").bind('click', (function(_this) {
-        return function(ev) {
-            return $(".alert").fadeOut();
-        };
-    })(this));
-    return setTimeout(flashCallback, 2500);
-});
+
