@@ -6,7 +6,8 @@
     <title>Promoaki</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'auth', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag    'auth', media: 'all' %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +43,8 @@
       </div>
       <%= yield %>
     </div>
-    <%= javascript_include_tag 'auth', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'auth' %>
   </body>
 
 </html>
