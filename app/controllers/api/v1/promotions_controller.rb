@@ -8,12 +8,11 @@ class Api::V1::PromotionsController < Api::ApiController
   	  render :json => { :status => "error", :message => "No pomotions yet" }
   	else
 	  # Address.near([-25.594798, -49.339072], 5)
-	  @address = Address.near([@longitude, @latitude], 15)
+	  @address = Address.near([@longitude, @latitude], 20)
 	  find_promotions(@address)
 	  render_sucess(@promotions)
     end
   end
-
 
   private
 
@@ -21,7 +20,8 @@ class Api::V1::PromotionsController < Api::ApiController
   	@addresses = addresses
   	@promotions = []
   	@addresses.each do |promo|
-  	  @promotions << Promotion.find_by(store_id: promo.store_id)
+  	  @promotions << Promotion.where(store_id: promo.store_id)
+      @promotions << distance(@latitude, @longitude, promo.store_id)
   	end
   	@promotions
   end
@@ -37,5 +37,11 @@ class Api::V1::PromotionsController < Api::ApiController
   def some_address?
   	Address.geocoded.nil?
   end
-end
 
+  def distance(latitude,longitude, store_id)
+    address = Address.find_by(store_id: store_id)
+    miles = Geocoder::Calculations.distance_between([address.latitude, address.longitude], [latitude, longitude]).to_i
+    distance = miles * 1.6
+    distance
+  end
+end

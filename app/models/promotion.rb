@@ -36,4 +36,8 @@ class Promotion < ApplicationRecord
     store_id.to_s + Random.rand(0...100).to_s +  Random.rand(0...10).to_s
   end
 
+  def store_address
+    store = Store.find(store_id).address
+    return store.longitude, store.latitude
+  end
 end
