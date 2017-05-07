@@ -3,9 +3,8 @@ class Ad::PromotionsController < AdController
   before_action :set_promotion, only: [:update, :edit, :show, :destroy]
 
   has_scope :by_cod
+  has_scope :by_title
   has_scope :by_period
-
-
 
   def index
     @promotions = apply_scopes(Promotion).where(store_id: current_store.id).order(created_at: :desc).page params[:page]

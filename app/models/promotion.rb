@@ -24,7 +24,9 @@ class Promotion < ApplicationRecord
 
   before_save :generate_code
 
-  scope :by_cod, -> (cod) { where("cod like ?", "%#{cod}%") }
+  scope :by_cod, -> (cod) { where("lower(cod) like ?", "%#{cod}%".downcase) }
+  scope :by_title, -> (title) { where("lower(title) like ?", "%#{title}%".downcase)}
+
   scope :by_period, -> created_at, endDate { where("created_at = ? AND endDate = ?", created_at, endDate) }
 
   private
@@ -34,4 +36,8 @@ class Promotion < ApplicationRecord
     store_id.to_s + Random.rand(0...100).to_s +  Random.rand(0...10).to_s
   end
 
+  def store_address
+    store = Store.find(store_id).address
+    return store.longitude, store.latitude
+  end
 end

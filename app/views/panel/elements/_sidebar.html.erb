@@ -1,0 +1,43 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <%= image_tag 'panel/admin_avatar.png', class: 'img-circle' %>
+      </div>
+      <div class=" info">
+        <p><%= current_admin.full_name %></p>
+        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+        <a href="#"></i><%= current_admin.role_i18n %></a>
+      </div>
+    </div>
+
+
+    <ul class="sidebar-menu">
+      <li class="header">Menu</li>
+
+      <li>
+        <%= link_to panel_root_path do %>
+          <i class="fa fa-dashboard"></i> <span>Painel</span>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to panel_admins_path do %>
+          <i class="fa fa-users"></i> <span>Administradores</span>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to panel_segments_path do %>
+          <i class="fa fa-check" ></i> <span>Segmentos</span>
+
+        <% end %>
+      </li>
+
+    </ul>
+
+  </section>
+  <!-- /.sidebar -->
+</aside>
