@@ -15,6 +15,8 @@
 #
 
 class Promotion < ApplicationRecord
+  include ActiveModel::Serialization
+
   belongs_to :segment
   belongs_to :store
 
@@ -28,6 +30,13 @@ class Promotion < ApplicationRecord
   scope :by_title, -> (title) { where("lower(title) like ?", "%#{title}%".downcase)}
 
   scope :by_period, -> created_at, endDate { where("created_at = ? AND endDate = ?", created_at, endDate) }
+
+  def attributes
+    { 'id' => id, 'title' => title, 'store_address' => store_address, 'description' => description,
+      'quantity' => quantity, 'endDate' => endDate, 'segment' => segment.name,
+      'store' => store.social_name, 'created_at' => created_at, 'updated_at' => updated_at,
+      'cod' => cod}
+  end
 
   private
 
