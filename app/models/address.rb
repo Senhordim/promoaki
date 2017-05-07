@@ -30,8 +30,6 @@ class Address < ApplicationRecord
   def full_address
     [street, numb, city, state, country].compact.join(', ')
   end
-
 end
 
 # '{"latitude": "-23.0099556", "longitude": "-45.5835282"}'
-
