@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  # Autenticação - Administrador
+  devise_for :admins
+
+  namespace :panel do
+    resources :segments, except: [:show]
+    resources :admins
+    get 'dashboard/index'
+    root 'dashboard#index'
+  end
+
   # Autenticação - Loja
   devise_for :stores, controllers: {
     sessions:      'stores/sessions',

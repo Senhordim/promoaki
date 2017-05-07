@@ -1,0 +1,15 @@
+<%= simple_form_for [:panel, @segment] do |f| %>
+
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.button :submit, class: 'pull-right' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :name, input_html: {placeholder: 'Nome do segmento'} %>
+    </div>
+  </div>
+
+<% end %>

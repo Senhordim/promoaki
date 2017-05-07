@@ -9,4 +9,6 @@
 #
 
 class Segment < ApplicationRecord
+  has_many :promotions, dependent: :destroy
+  validates_presence_of :name
 end

@@ -33,7 +33,6 @@ end
 gem "font-awesome-rails"
 gem 'bootstrap-datepicker-rails'
 gem 'jquery_mask_rails' # more details at http://bit.ly/jquery-mask-gem
-
 gem 'devise'
 gem 'devise-i18n'
 gem 'simple_form'
@@ -44,6 +43,12 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'has_scope'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem "figaro"
+gem "sentry-raven"
+gem 'enum_help'
+gem "pundit"
+gem 'gmaps4rails'
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

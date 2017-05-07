@@ -28,6 +28,11 @@
                 </div>
 
                 <div class="col-md-3">
+                  <%= label_tag :by_title, "Por nome", class: 'sr-only' %>
+                  <%= text_field_tag :by_title, nil, :placeholder => "por título", class: "form-control"  %>
+                </div>
+
+                <div class="col-md-3">
                   <%= submit_tag "Filtrar", class: 'btn btn-default'  %>
                   <%= link_to "Limpar", request.path, class: 'btn cancel-button'  %>
                 </div>
@@ -44,8 +49,8 @@
         <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Lista de Promoções</h3>
-                <%= link_to new_ad_promotion_path, class: 'btn  btn-default pull-right' do %>
-                  <i class="fa fa-plus"></i> Cadastrar
+                <%= link_to new_ad_promotion_path, class: 'btn  btn-primary pull-right' do %>
+                  <i class="fa fa-plus"></i> Adicionar
                 <% end %>
               </div>
               <!-- /.box-header -->
