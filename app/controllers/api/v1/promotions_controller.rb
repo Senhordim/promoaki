@@ -40,8 +40,8 @@ class Api::V1::PromotionsController < Api::ApiController
 
   def distance(latitude,longitude, store_id)
     address = Address.find_by(store_id: store_id)
-    miles = Geocoder::Calculations.distance_between([address.latitude, address.longitude], [latitude, longitude]).to_i
-    distance = miles * 1.6
+    miles = Geocoder::Calculations.distance_between([address.latitude, address.longitude], [latitude, longitude])
+    distance = (miles * 1.6).to_i
     distance
   end
 end
