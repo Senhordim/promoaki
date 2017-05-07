@@ -10,7 +10,7 @@ class Api::V1::PromotionsController < Api::ApiController
 	  # Address.near([-25.594798, -49.339072], 5)
 	  @address = Address.near([@longitude, @latitude], 20)
 	  find_promotions(@address)
-	  render_sucess(@promotions, @distance)
+	  render_sucess(@promotions)
     end
   end
 
@@ -30,7 +30,7 @@ class Api::V1::PromotionsController < Api::ApiController
   	Promotion.nil?
   end
 
-  def render_sucess(object,object2=nil)
+  def render_sucess(object)
   	render :json => object, :status => 200
   end
 
