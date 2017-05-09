@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   namespace :api, path: '', defaults: { format: 'json'} do
     namespace :v1 do
        post "/promotions", :to => "promotions#index", as: 'promotions'
+       get "/stores/:id", :to => "stores#show", as: 'stores'
     end
   end
 
