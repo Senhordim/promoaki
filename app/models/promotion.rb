@@ -32,10 +32,8 @@ class Promotion < ApplicationRecord
   scope :by_period, -> created_at, endDate { where("created_at = ? AND endDate = ?", created_at, endDate) }
 
   def attributes
-    { 'id' => id, 'title' => title, 'store_address' => store_address, 'description' => description,
-      'quantity' => quantity, 'endDate' => endDate, 'segment' => segment.name,
-      'store' => store.social_name, 'created_at' => created_at, 'updated_at' => updated_at,
-      'cod' => cod}
+    { 'id' => id, 'title' => title, 'store_name' => store_name, 'description' => description,
+      'endDate' => endDate, 'store_address' => store_address, 'cod' => cod, 'distance_to' => distance_to}
   end
 
   private
@@ -48,5 +46,19 @@ class Promotion < ApplicationRecord
   def store_address
     store = Store.find(store_id).address
     return store.longitude, store.latitude
+  end
+
+  def store_name
+    store = find_store
+    return store.social_name
+  end
+
+  def distance_to
+    store = find_store
+    return store.distance
+  end
+
+  def find_store
+    store = Store.find(store_id)
   end
 end
