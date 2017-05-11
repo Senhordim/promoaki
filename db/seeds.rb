@@ -12,3 +12,11 @@ Segment.create(name: "Papelaria")
 Segment.create(name: "Roupas")
 Segment.create(name: "Doméstico")
 Segment.create(name: "venda")
+
+Admin.create(
+  full_name: "Admin Sistema",
+  role: 0,
+  email: "admin@admin.com.br",
+  password: 'promoaki217**',
+  password_confirmation: 'promoaki217**'
+)
