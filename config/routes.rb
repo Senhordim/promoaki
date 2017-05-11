@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   # Autenticação - Administrador
   devise_for :admins
 
+  # Administrativo Geral
   namespace :panel do
-    resources :segments, except: [:show]
+    resources :stores
     resources :admins
+    resources :segments, except: [:show]
     get 'dashboard/index'
     root 'dashboard#index'
   end
@@ -26,6 +28,10 @@ Rails.application.routes.draw do
     root 'dashboard#index'
   end
 
+  # Rotas
+  get 'home/index'
+  root to: 'home#index'
+
   # API
   namespace :api, path: '', defaults: { format: 'json'} do
     namespace :v1 do
@@ -33,9 +39,5 @@ Rails.application.routes.draw do
        get "/stores/:id", :to => "stores#show", as: 'stores'
     end
   end
-
-  # Rotas
-  get 'home/index'
-  root to: 'home#index'
 
 end
