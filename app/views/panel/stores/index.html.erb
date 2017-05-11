@@ -1,0 +1,81 @@
+<!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Painel
+      <small>de controle</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Painel</a></li>
+      <li class="active">Lista de lojas</li>
+    </ol>
+  </section>
+
+  <section class="content">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title">Lista de lojas</h3>
+
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nome</th>
+                      <th>Promoções ativa</th>
+                      <th>Endereço</th>
+                      <th>Último acesso</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @stores.each do |store| %>
+                      <tr>
+                        <td><%= store.id %></td>
+                        <td><%= store.social_name  %></td>
+                        <td>
+                          <% if store.promotions.count > 0 %>
+                            <span class="badge bg-green"><%= store.promotions.count %></span>
+                          <% else %>
+
+                            <span class="badge bg-default">0</span>
+                          <% end %>
+
+                        </td>
+                        <td>
+                          <i class="fa fa-map-marker" aria-hidden="true"></i>
+                          <%= store.address.full_address %>
+                        </td>
+                        <td><%= store.last_sign_in_at.strftime("%d/%m/%Y %H:%M:%S")  %></td>
+
+                        <td>
+
+                          <%= link_to panel_store_path(store), class: 'btn btn-default' do %>
+                            <i class="fa fa-eye"></i>
+                          <% end %>
+
+                          <%= link_to edit_panel_store_path(store), class: 'btn btn-default' do %>
+                            <i class="fa fa-edit"></i>
+                          <% end %>
+
+                          <%= link_to panel_store_path(store), method: :delete, class: 'btn btn-danger', data: {confirm: "Você realmente deseja excluir o segmento: #{store.social_name}?"} do %>
+                              <i class="fa fa-minus"></i>
+                          <% end %>
+
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
