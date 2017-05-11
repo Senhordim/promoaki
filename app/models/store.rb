@@ -31,8 +31,8 @@ class Store < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_one :address
-  has_many :promotions
+  has_one :address, dependent: :destroy
+  has_many :promotions, dependent: :destroy
 
   validates :social_name, :fantasy_name, :cnpj, :phone, presence: true
   validates :cnpj, uniqueness: true
