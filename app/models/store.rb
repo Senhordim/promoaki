@@ -37,6 +37,8 @@ class Store < ApplicationRecord
   validates :social_name, :fantasy_name, :cnpj, :phone, presence: true
   validates :cnpj, uniqueness: true
 
+  accepts_nested_attributes_for :address
+
   def cnpj_formatado
     cnpj.gsub(/\A(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})\Z/, "\\1.\\2.\\3/\\4-\\5")
   end
