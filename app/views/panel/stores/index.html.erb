@@ -41,14 +41,17 @@
                           <% if store.promotions.count > 0 %>
                             <span class="badge bg-green"><%= store.promotions.count %></span>
                           <% else %>
-
                             <span class="badge bg-default">0</span>
                           <% end %>
-
                         </td>
                         <td>
                           <i class="fa fa-map-marker" aria-hidden="true"></i>
-                          <%= store.address.full_address if store.address.present? %>
+
+                          <% if store.address.full_address.present? %>
+                            <%= store.address.full_address %>
+                          <% else %>
+                            Endereço não cadastrado.
+                          <% end %>
                         </td>
                         <td><%= store.last_sign_in_at.strftime("%d/%m/%Y %H:%M:%S")  %></td>
 
