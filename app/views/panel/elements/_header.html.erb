@@ -26,14 +26,10 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <% if current_admin.email.present? %>
-                  <i class="fa fa-fw fa-map-marker" style="font-size: 40px; color: #fff"></i>
-                  <p><%= current_admin.email %></p>
-                <% end %>
-                <p>
-                  <%= current_admin.email %>
-                  <small><%= time_ago_in_words(current_admin.created_at) %></small>
-                </p>
+                <i class="fa fa-unlock-alt" aria-hidden="true", style="font-size: 40px; color: #fff"></i>
+                <p><%= current_admin.email %></p>
+                <p><%= current_admin.role_i18n %></p>
+                <p><small><%= time_ago_in_words(current_admin.created_at) %></small></p>
               </li>
               <!-- Menu Body -->
 
@@ -47,6 +43,11 @@
                 </div>
               </li>
             </ul>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete do %>
+              <i class="fa fa-power-off"></i>
+            <% end %>
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
