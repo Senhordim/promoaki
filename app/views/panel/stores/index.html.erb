@@ -53,8 +53,8 @@
                             Endereço não cadastrado.
                           <% end %>
                         </td>
-                        <td><%= store.last_sign_in_at.strftime("%d/%m/%Y %H:%M:%S")  %></td>
-
+                        <td>
+                          <%= if store.last_sign_in_at != nil ? store.last_sign_in_at.strftime("%d/%m/%Y %H:%M:%S") : "Nunca acessou" %></td>
                         <td>
 
                           <%= link_to panel_store_path(store), class: 'btn btn-default' do %>
