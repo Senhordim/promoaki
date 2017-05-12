@@ -54,7 +54,12 @@
                           <% end %>
                         </td>
                         <td>
-                          <%= if store.last_sign_in_at != nil ? store.last_sign_in_at.strftime("%d/%m/%Y %H:%M:%S") : "Nunca acessou" %></td>
+                          <% if store.last_sign_in_at.present? %>
+                            <%= store.last_sign_in_at.strftime("%d/%m/%Y %H:%M:%S") %>
+                          <% else %>
+                            <%= "Nunca acessou" %>
+                          <% end %>
+                        </td>
                         <td>
 
                           <%= link_to panel_store_path(store), class: 'btn btn-default' do %>
