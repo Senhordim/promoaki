@@ -8,9 +8,11 @@ class Panel::StoresController < PanelController
 
   def new
     @store = Store.new
+    @store.build_address
   end
 
   def create
+    binding.pry
     @store = Store.new(store_params)
     if @store.save
       redirect_to panel_store_path(@store), notice: 'Loja criada com sucesso!'
@@ -46,7 +48,7 @@ class Panel::StoresController < PanelController
 
   def store_params
     password = params[:store][:password]
-    password_confirmation = params[:admin][:password_confirmation]
+    password_confirmation = params[:store][:password_confirmation]
 
     if password.blank? && password_confirmation.blank?
       params[:store].except!(:password, :password_confirmation)
@@ -58,7 +60,17 @@ class Panel::StoresController < PanelController
       :social_name,
       :fantasy_name,
       :cnpj,
-      :phone
+      :phone,
+      address_attributes: [
+        :street,
+        :neighborhood,
+        :zip_code,
+        :numb,
+        :complement,
+        :city,
+        :state,
+        :country
+      ]
     )
   end
 
