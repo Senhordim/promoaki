@@ -12,7 +12,6 @@ class Panel::StoresController < PanelController
   end
 
   def create
-    binding.pry
     @store = Store.new(store_params)
     if @store.save
       redirect_to panel_store_path(@store), notice: 'Loja criada com sucesso!'
