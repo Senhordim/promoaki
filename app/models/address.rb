@@ -28,7 +28,7 @@ class Address < ApplicationRecord
     if: -> (obj){ obj.street_changed? || obj.numb_changed? || obj.neighborhood_changed? || obj.city_changed? || obj.state_changed? }
 
   def full_address
-    [street, numb, city, state, country].compact.join(', ')
+    [street, numb, city, state, country, zip_code].compact.join(', ')
   end
 end
 

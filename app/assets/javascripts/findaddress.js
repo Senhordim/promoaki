@@ -2,13 +2,13 @@
 
   "use strict";
 
-  var zipCode = document.querySelector('#address_zip_code');
-  var street = document.querySelector('#address_street');
-  var complement = document.querySelector('#address_complement');
-  var numb = document.querySelector('#address_numb');
-  var neighborhood = document.querySelector('#address_neighborhood');
-  var city = document.querySelector('#address_city');
-  var state = document.querySelector('#address_state');
+  var zipCode = document.querySelector('.address-zip-code');
+  var street = document.querySelector('.address-street');
+  var complement = document.querySelector('.address-complement');
+  var numb = document.querySelector('.address-numb');
+  var neighborhood = document.querySelector('.address-neighborhood');
+  var city = document.querySelector('.address-city');
+  var state = document.querySelector('.address-state');
   var fields = [street, complement, neighborhood, city, state]
 
   zipCode.addEventListener('blur', function(){

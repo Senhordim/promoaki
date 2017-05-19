@@ -6,7 +6,7 @@
     <title>Promoaki</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'ad', media: 'all' %>
   </head>
 
@@ -44,7 +44,9 @@
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
     </div>
-    <%= javascript_include_tag 'application' %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'ad' %>
+
   </body>
 </html>

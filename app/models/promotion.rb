@@ -33,7 +33,8 @@ class Promotion < ApplicationRecord
 
   def attributes
     { 'id' => id, 'title' => title, 'store_name' => store_name, 'description' => description,
-      'endDate' => endDate, 'store_address' => store_address, 'cod' => cod, 'distance_to' => distance_to}
+      'endDate' => endDate, 'store_address' => store_address, 'cod' => cod, 
+      'distance_to' => distance_to, 'store_full_address' => store_full_address, 'quantity' => quantity}
   end
 
   private
@@ -60,5 +61,11 @@ class Promotion < ApplicationRecord
 
   def find_store
     store = Store.find(store_id)
+  end
+
+  def store_full_address
+    store = find_store
+    address = store.address.full_address
+    return address
   end
 end

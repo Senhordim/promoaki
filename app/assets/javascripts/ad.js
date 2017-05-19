@@ -6,15 +6,10 @@
 //= require fastclick
 //= require ad/app
 //= require jquery.mask
-//= require ad/mask
-//= require ad/findaddress
+//= require mask
+//= require findaddress
 //= require flash
+//= require ckeditor
 
-$(document).ready(function(){
-  $('.datepicker').datepicker({
-    format: 'dd/mm/yyyy',
-    language: 'pt-BR'
-  });
-});
 
 
