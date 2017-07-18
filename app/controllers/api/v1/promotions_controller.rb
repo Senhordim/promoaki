@@ -18,8 +18,9 @@ class Api::V1::PromotionsController < Api::ApiController
   def set_addresses
     @longitude = params[:longitude]
     @latitude  = params[:latitude]
+    distance = params[:distance].nil?  ? 20 : params[:distance] 
 
-    @address = Address.near([@longitude, @latitude], 20)
+    @address = Address.near([@longitude, @latitude], distance)
     set_distance(@address)
   end
 
